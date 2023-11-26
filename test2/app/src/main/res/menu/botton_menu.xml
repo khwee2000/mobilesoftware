@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_home"
+        android:enabled="true"
+        android:icon="@drawable/baseline_home"
+        android:title="메인홈"/>
+
+    <item
+        android:id="@+id/action_write"
+        android:enabled="true"
+        android:icon="@drawable/baseline_write"
+        android:title="기록탭"/>
+
+    <item
+        android:id="@+id/action_after"
+        android:enabled="true"
+        android:icon="@drawable/baseline_after"
+        android:title="작성탭"/>
+
+    <item
+        android:id="@+id/action_analysis"
+        android:enabled="true"
+        android:icon="@drawable/baseline_analysis"
+        android:title="분석탭"/>
+
+</menu>
