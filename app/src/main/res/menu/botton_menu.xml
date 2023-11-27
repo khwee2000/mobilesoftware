@@ -10,13 +10,13 @@
         android:id="@+id/action_write"
         android:enabled="true"
         android:icon="@drawable/baseline_write"
-        android:title="기록탭"/>
+        android:title="입력탭"/>
 
     <item
         android:id="@+id/action_after"
         android:enabled="true"
         android:icon="@drawable/baseline_after"
-        android:title="작성탭"/>
+        android:title="기록탭"/>
 
     <item
         android:id="@+id/action_analysis"
