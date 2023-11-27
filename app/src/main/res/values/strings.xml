@@ -1,3 +1,25 @@
 <resources>
-    <string name="app_name">test2</string>
+    <string name="app_name">아코끼니</string>
+    <string name="choose_meal">식사 선택</string>
+    <string name="type_of_meal">식사 종류</string>
+    <string name="choose_place">장소 선택</string>
+    <string name="name_meal">식사 이름 입력</string>
+    <string name="meal_cost">식사 비용</string>
+    <string name="meal_photo">식사 사진 입력</string>
+    <string name="register_button">등록하기</string>
+    <string name="meal">식사</string>
+    <string name="cafe">카페</string>
+    <string name="breakfast">조식</string>
+    <string name="lunch">중식</string>
+    <string name="dinner">석식</string>
+    <string name="drink">음료</string>
+    <string name="dessert">디저트</string>
+    <string name="choose_place_words">장소를 선택해주세요</string>
+    <string name="meal_name_word">식사 이름을 입력해주세요.</string>
+    <string name="meal_cost_word">식사 비용을 선택해주세요.</string>
+    <string name="meal_time">식사 시간</string>
+    <string name="meal_photo_word">사진을 선택해주세요.</string>
+    <string name="meal_emoji">식사 이모지</string>
+    <string name="meal_evaluation">식사 평가</string>
+    <string name="meal_evaluation_word">식사평을 입력해주세요.</string>
 </resources>
