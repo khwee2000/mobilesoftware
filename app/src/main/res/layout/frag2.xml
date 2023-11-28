@@ -19,7 +19,7 @@
             android:layout_weight="1">
 
             <Button
-                android:id="@+id/button7"
+                android:id="@+id/breakfast_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -32,7 +32,7 @@
                 app:strokeWidth="2dp" />
 
             <Button
-                android:id="@+id/button11"
+                android:id="@+id/dinner_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="217dp"
@@ -40,13 +40,13 @@
                 android:backgroundTint="#131313"
                 android:text="@string/dinner"
                 android:textColor="#FE7501"
-                app:layout_constraintEnd_toStartOf="@+id/button10"
+                app:layout_constraintEnd_toStartOf="@+id/brink_btn"
                 app:layout_constraintTop_toTopOf="parent"
                 app:strokeColor="#232323"
                 app:strokeWidth="2dp" />
 
             <Button
-                android:id="@+id/button10"
+                android:id="@+id/brink_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="88dp"
@@ -54,26 +54,26 @@
                 android:backgroundTint="#131313"
                 android:text="@string/drink"
                 android:textColor="#FE7501"
-                app:layout_constraintBaseline_toBaselineOf="@+id/button11"
-                app:layout_constraintStart_toEndOf="@+id/button2"
+                app:layout_constraintBaseline_toBaselineOf="@+id/dinner_btn"
+                app:layout_constraintStart_toEndOf="@+id/caffe_btn"
                 app:strokeColor="#232323"
                 app:strokeWidth="2dp" />
 
             <Button
-                android:id="@+id/button8"
+                android:id="@+id/lunch_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="#131313"
                 android:text="@string/lunch"
                 android:textColor="#FE7501"
-                app:layout_constraintBaseline_toBaselineOf="@+id/button11"
-                app:layout_constraintEnd_toStartOf="@+id/button11"
+                app:layout_constraintBaseline_toBaselineOf="@+id/dinner_btn"
+                app:layout_constraintEnd_toStartOf="@+id/dinner_btn"
                 app:strokeColor="#232323"
                 app:strokeWidth="2dp" />
 
             <Button
-                android:id="@+id/button12"
+                android:id="@+id/dessert_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -82,13 +82,13 @@
                 android:backgroundTint="#131313"
                 android:text="@string/dessert"
                 android:textColor="#FE7501"
-                app:layout_constraintEnd_toEndOf="@+id/button11"
-                app:layout_constraintTop_toBottomOf="@+id/button11"
+                app:layout_constraintEnd_toEndOf="@+id/dinner_btn"
+                app:layout_constraintTop_toBottomOf="@+id/dinner_btn"
                 app:strokeColor="#232323"
                 app:strokeWidth="2dp" />
 
             <Button
-                android:id="@+id/button15"
+                android:id="@+id/food_cost_btn"
                 android:layout_width="319dp"
                 android:layout_height="41dp"
                 android:layout_marginTop="107dp"
@@ -114,8 +114,8 @@
                 android:text="@string/register_button"
                 android:textColor="#000000"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/button14"
-                app:layout_constraintStart_toStartOf="@+id/button16"
+                app:layout_constraintEnd_toEndOf="@+id/place_btn"
+                app:layout_constraintStart_toStartOf="@+id/picture_btn"
                 app:strokeWidth="2dp" />
 
             <Button
@@ -131,14 +131,14 @@
                 android:text="@string/meal_photo_word"
                 android:textColor="#FE7501"
                 app:layout_constraintBottom_toTopOf="@+id/button9"
-                app:layout_constraintEnd_toEndOf="@+id/button14"
-                app:layout_constraintStart_toStartOf="@+id/button14"
+                app:layout_constraintEnd_toEndOf="@+id/place_btn"
+                app:layout_constraintStart_toStartOf="@+id/place_btn"
                 app:layout_constraintTop_toTopOf="@+id/textView16"
                 app:strokeColor="#232323"
                 app:strokeWidth="2dp" />
 
             <Button
-                android:id="@+id/button16"
+                android:id="@+id/picture_btn"
                 android:layout_width="0dp"
                 android:layout_height="156dp"
                 android:layout_marginStart="18dp"
@@ -155,7 +155,7 @@
                 app:strokeWidth="2dp" />
 
             <Button
-                android:id="@+id/button14"
+                android:id="@+id/place_btn"
                 android:layout_width="319dp"
                 android:layout_height="41dp"
                 android:layout_marginTop="63dp"
@@ -165,27 +165,27 @@
                 android:backgroundTint="#131313"
                 android:text="@string/choose_place_words"
                 android:textColor="#FE7501"
-                app:layout_constraintBottom_toTopOf="@+id/editTextText"
+                app:layout_constraintBottom_toTopOf="@+id/food_name_edit"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/button12"
+                app:layout_constraintTop_toTopOf="@+id/dessert_btn"
                 app:strokeColor="#232323"
                 app:strokeWidth="2dp" />
 
             <Button
-                android:id="@+id/button5"
+                android:id="@+id/meal_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="#131313"
                 android:text="@string/meal"
                 android:textColor="#FE7501"
-                app:layout_constraintBaseline_toBaselineOf="@+id/button2"
+                app:layout_constraintBaseline_toBaselineOf="@+id/caffe_btn"
                 app:layout_constraintStart_toStartOf="@+id/textView10"
                 app:strokeColor="#232323"
                 app:strokeWidth="2dp" />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/caffe_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="11dp"
@@ -194,8 +194,8 @@
                 android:backgroundTint="#131313"
                 android:text="@string/cafe"
                 android:textColor="#FE7501"
-                app:layout_constraintBottom_toTopOf="@+id/button11"
-                app:layout_constraintStart_toEndOf="@+id/button5"
+                app:layout_constraintBottom_toTopOf="@+id/dinner_btn"
+                app:layout_constraintStart_toEndOf="@+id/meal_btn"
                 app:strokeColor="#232323"
                 app:strokeWidth="2dp" />
 
@@ -207,8 +207,8 @@
                 android:layout_weight="1"
                 android:text="@string/type_of_meal"
                 android:textColor="#FE7501"
-                app:layout_constraintStart_toStartOf="@+id/button5"
-                app:layout_constraintTop_toBottomOf="@+id/button5" />
+                app:layout_constraintStart_toStartOf="@+id/meal_btn"
+                app:layout_constraintTop_toBottomOf="@+id/meal_btn" />
 
             <TextView
                 android:id="@+id/textView10"
@@ -219,7 +219,7 @@
                 android:layout_weight="1"
                 android:text="@string/choose_meal"
                 android:textColor="#FE7501"
-                app:layout_constraintBottom_toTopOf="@+id/button5"
+                app:layout_constraintBottom_toTopOf="@+id/meal_btn"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
@@ -231,8 +231,8 @@
                 android:layout_weight="1"
                 android:text="@string/name_meal"
                 android:textColor="#FE7501"
-                app:layout_constraintBottom_toTopOf="@+id/editTextText"
-                app:layout_constraintStart_toStartOf="@+id/editTextText" />
+                app:layout_constraintBottom_toTopOf="@+id/food_name_edit"
+                app:layout_constraintStart_toStartOf="@+id/food_name_edit" />
 
             <TextView
                 android:id="@+id/textView13"
@@ -243,8 +243,8 @@
                 android:layout_weight="1"
                 android:text="@string/meal_cost"
                 android:textColor="#FE7501"
-                app:layout_constraintStart_toStartOf="@+id/editTextText"
-                app:layout_constraintTop_toBottomOf="@+id/editTextText" />
+                app:layout_constraintStart_toStartOf="@+id/food_name_edit"
+                app:layout_constraintTop_toBottomOf="@+id/food_name_edit" />
 
             <TextView
                 android:id="@+id/textView14"
@@ -255,8 +255,8 @@
                 android:layout_weight="1"
                 android:text="@string/meal_photo"
                 android:textColor="#FE7501"
-                app:layout_constraintBottom_toTopOf="@+id/button16"
-                app:layout_constraintStart_toStartOf="@+id/button16" />
+                app:layout_constraintBottom_toTopOf="@+id/picture_btn"
+                app:layout_constraintStart_toStartOf="@+id/picture_btn" />
 
             <TextView
                 android:id="@+id/textView16"
@@ -280,7 +280,7 @@
                 android:text="@string/meal_emoji"
                 android:textColor="#FE7501"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button16" />
+                app:layout_constraintTop_toBottomOf="@+id/picture_btn" />
 
             <TextView
                 android:id="@+id/textView15"
@@ -291,7 +291,7 @@
                 android:layout_weight="1"
                 android:text="@string/meal_time"
                 android:textColor="#FE7501"
-                app:layout_constraintStart_toStartOf="@+id/button15"
+                app:layout_constraintStart_toStartOf="@+id/food_cost_btn"
                 app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
             <TextView
@@ -303,8 +303,8 @@
                 android:layout_weight="1"
                 android:text="@string/choose_meal"
                 android:textColor="#FE7501"
-                app:layout_constraintBottom_toTopOf="@+id/button14"
-                app:layout_constraintStart_toStartOf="@+id/button14" />
+                app:layout_constraintBottom_toTopOf="@+id/place_btn"
+                app:layout_constraintStart_toStartOf="@+id/place_btn" />
 
             <TextView
                 android:id="@+id/textView8"
@@ -320,7 +320,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/editTextText"
+                android:id="@+id/food_name_edit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="42dp"
@@ -329,7 +329,7 @@
                 android:text="@string/meal_name_word"
                 android:textColor="#FE7501"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button12" />
+                app:layout_constraintTop_toBottomOf="@+id/dessert_btn" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
