@@ -14,12 +14,16 @@
     <string name="dinner">석식</string>
     <string name="drink">음료</string>
     <string name="dessert">디저트</string>
-    <string name="choose_place_words">장소를 선택해주세요</string>
+    <string name="choose_place_words">장소를 입력해주세요.</string>
     <string name="meal_name_word">식사 이름을 입력해주세요.</string>
-    <string name="meal_cost_word">식사 비용을 선택해주세요.</string>
+    <string name="meal_cost_word">식사 비용을 입력해주세요.</string>
     <string name="meal_time">식사 시간</string>
     <string name="meal_photo_word">사진을 선택해주세요.</string>
     <string name="meal_emoji">식사 이모지</string>
     <string name="meal_evaluation">식사 평가</string>
     <string name="meal_evaluation_word">식사평을 입력해주세요.</string>
+    <string name="meal_type_word">식사 종류를 선택하세요.</string>
+    <string name="meal_tme">식사 시간을 입력해주세요</string>
+    <string name="meal_review">식사 만족도를 입력해주세요.</string>
+    <string name="BackToFrag2">입력탭으로 돌아가기</string>
 </resources>
