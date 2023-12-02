@@ -4,6 +4,7 @@ import static android.app.Activity.RESULT_OK;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -12,12 +13,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -28,6 +31,7 @@ import java.util.Calendar;
 
 public class Frag2 extends Fragment {
     private View view;
+    Dialog dialog01;
     private static final int PICK_IMAGE_REQUEST = 1;
 
 
@@ -35,6 +39,8 @@ public class Frag2 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.frag2,container,false);
+
+
 
         Button meal_type_btn = view.findViewById(R.id.meal_type_btn);//버튼 선언 및 find
         Button place_btn = view.findViewById(R.id.place_btn);
@@ -130,20 +136,29 @@ public class Frag2 extends Fragment {
                 dialog.show(); //최종 보여주기
             }
         });//식사 이름 입력
+
+
         meal_cost_btn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
-                dialog.setTitle("식사 비용 입력");
+            public void onClick(View view) {
+                AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
+                dialog.setTitle("식사 가격을 입력하십시오.");
                 final EditText mealCost = new EditText(getActivity());
                 dialog.setView(mealCost);
-                dialog.setPositiveButton("확인", new DialogInterface.OnClickListener() { // 확인했을때, String 형태로 저장
+                dialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         String result = mealCost.getText().toString();
-                        meal_cost_tv.setText(result);
+                        int mealCostValue = 0;
+                        try {
+                            mealCostValue = Integer.parseInt(result);
+                            meal_cost_tv.setText(String.valueOf(mealCostValue));
+                        } catch (NumberFormatException e) {
+                            Toast.makeText(getActivity(), "잘못된 값이 입력되어 0원으로 설정됩니다.", Toast.LENGTH_SHORT).show();
+                            meal_cost_tv.setText(String.valueOf(mealCostValue));
+                        }
                     }
                 });
-
                 dialog.setNegativeButton("취소", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -152,7 +167,8 @@ public class Frag2 extends Fragment {
                 });
                 dialog.show(); //최종 보여주기
             }
-        }); //식사 비용 입력
+        });//식사 가격 입력
+
         meal_date_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
