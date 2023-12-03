@@ -29,6 +29,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.viewmodel.CreationExtras;
 
 import java.io.IOException;
@@ -40,12 +41,22 @@ public class Frag2 extends Fragment {
     private static final int PICK_IMAGE_REQUEST = 1;
     private ImageView imageView;
 
+    private TextView meal_type_tv; //텍스트뷰 선언
+    private TextView place_tv;
+    private TextView food_name_tv;
+    private TextView meal_cost_tv;
+    private TextView meal_date_tv;
+    private TextView meal_time_tv;
+    private TextView food_review_tv;
+    private MealViewModel viewModel;
 
+    private String uriString;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.frag2,container,false);
+
 
         Button meal_type_btn = view.findViewById(R.id.meal_type_btn);//버튼 선언 및 find
         Button place_btn = view.findViewById(R.id.place_btn);
@@ -56,13 +67,13 @@ public class Frag2 extends Fragment {
         Button picture_btn = view.findViewById(R.id.picture_btn);
 
 
-        TextView meal_type_tv = view.findViewById(R.id.meal_type_tv);//텍스트뷰 선언 및 find
-        TextView palce_tv = view.findViewById(R.id.place_tv);
-        TextView food_name_tv = view.findViewById(R.id.food_name_tv);
-        TextView meal_cost_tv = view.findViewById(R.id.meal_cost_tv);
-        TextView meal_date_tv = view.findViewById(R.id.meal_date_tv);
-        TextView meal_time_tv = view.findViewById(R.id.meal_time_tv2);
-        TextView food_review_tv = view.findViewById(R.id.food_review_tv);
+        meal_type_tv = view.findViewById(R.id.meal_type_tv);//텍스트뷰 선언 및 find
+        place_tv = view.findViewById(R.id.place_tv);
+        food_name_tv = view.findViewById(R.id.food_name_tv);
+        meal_cost_tv = view.findViewById(R.id.meal_cost_tv);
+        meal_date_tv = view.findViewById(R.id.meal_date_tv);
+        meal_time_tv = view.findViewById(R.id.meal_time_tv2);
+        food_review_tv = view.findViewById(R.id.food_review_tv);
 
         RatingBar ratingBar = view.findViewById(R.id.ratingBar);//RatingBar
         imageView = view.findViewById(R.id.meal_img); // 이미지 뷰
@@ -88,6 +99,7 @@ public class Frag2 extends Fragment {
                     public void onClick(DialogInterface dialogInterface, int i) {
                         String result = mealtype[selectedIndex[0]].toString();
                         meal_type_tv.setText(result);
+
                     }
 
                 });
@@ -110,7 +122,7 @@ public class Frag2 extends Fragment {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         String result = place.getText().toString();
-                        palce_tv.setText(result);
+                        place_tv.setText(result);
                     }
                 });
 
@@ -245,7 +257,7 @@ public class Frag2 extends Fragment {
 
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null && data.getData() != null) {
             Uri uri = data.getData();
-
+            uriString = uri.toString();
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), uri);
                 imageView.setImageBitmap(bitmap);
@@ -255,6 +267,23 @@ public class Frag2 extends Fragment {
         }
     } //사진 입력 함수
 
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        viewModel = new ViewModelProvider(this).get(MealViewModel.class);
+    } //DB이용
+    private void insertData() {
+        Meal meal = new Meal();
+        meal.setMeal_type(meal_type_tv.getText().toString());
+        meal.setMeal_place(place_tv.getText().toString());
+        meal.setMeal_name(food_name_tv.getText().toString());
+        meal.setMeal_cost(Integer.parseInt(meal_cost_tv.getText().toString()));
+        meal.setMeal_data(meal_date_tv.getText().toString());
+        meal.setMeal_time(meal_time_tv.getText().toString());
+        meal.setMeal_review(Integer.parseInt(food_review_tv.getText().toString()));
+        meal.setImageUri(uriString);
+        viewModel.insert(meal);
+    }
 
 
     @NonNull

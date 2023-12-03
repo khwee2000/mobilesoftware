@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.room.Room;
 
 
 import android.os.Bundle;
@@ -12,6 +13,8 @@ import android.view.MenuItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
+
+    private MealDao mMealDado;
 
     private BottomNavigationView bottomNavigationView; // 바텀 네비게이션 뷰
     private FragmentManager fm;//프래그먼트 메니저
@@ -26,6 +29,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        MealDatabase database = Room.databaseBuilder(getApplicationContext(),MealDatabase.class,"meal_db")
+                .fallbackToDestructiveMigration()
+                .allowMainThreadQueries()
+                .build(); //DB 생성
+
+        mMealDado = database.mealDao(); //인터페이스 객체 할당
+
+
+
+
 
         bottomNavigationView = findViewById(R.id.navigationVar);
         frag1 = new Frag1();
