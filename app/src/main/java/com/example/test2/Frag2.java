@@ -2,14 +2,17 @@ package com.example.test2;
 
 import static android.app.Activity.RESULT_OK;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +20,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -27,20 +31,21 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.viewmodel.CreationExtras;
 
+import java.io.IOException;
 import java.util.Calendar;
 
 public class Frag2 extends Fragment {
     private View view;
     Dialog dialog01;
     private static final int PICK_IMAGE_REQUEST = 1;
+    private ImageView imageView;
+
 
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.frag2,container,false);
-
-
 
         Button meal_type_btn = view.findViewById(R.id.meal_type_btn);//버튼 선언 및 find
         Button place_btn = view.findViewById(R.id.place_btn);
@@ -49,6 +54,7 @@ public class Frag2 extends Fragment {
         Button meal_date_btn = view.findViewById(R.id.meal_date_btn);
         Button meal_time_btn = view.findViewById(R.id.meal_time_btn);
         Button picture_btn = view.findViewById(R.id.picture_btn);
+
 
         TextView meal_type_tv = view.findViewById(R.id.meal_type_tv);//텍스트뷰 선언 및 find
         TextView palce_tv = view.findViewById(R.id.place_tv);
@@ -59,6 +65,10 @@ public class Frag2 extends Fragment {
         TextView food_review_tv = view.findViewById(R.id.food_review_tv);
 
         RatingBar ratingBar = view.findViewById(R.id.ratingBar);//RatingBar
+        imageView = view.findViewById(R.id.meal_img); // 이미지 뷰
+
+
+
 
 
         meal_type_btn.setOnClickListener(new View.OnClickListener() {
@@ -222,16 +232,30 @@ public class Frag2 extends Fragment {
 
             }
 
-        }); //사진 입력(아직 미완성)
-
-
-
-
+        }); //사진 입력
 
 
         return view;
 
     }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null && data.getData() != null) {
+            Uri uri = data.getData();
+
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), uri);
+                imageView.setImageBitmap(bitmap);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    } //사진 입력 함수
+
+
 
     @NonNull
     @Override
