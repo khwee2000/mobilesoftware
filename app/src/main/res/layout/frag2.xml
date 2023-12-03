@@ -146,6 +146,18 @@
                 app:strokeWidth="2dp" />
 
             <Button
+                android:id="@+id/register_btn2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:backgroundTint="#131313"
+                android:text="@string/register_button"
+                android:textColor="#FE7501"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:strokeWidth="2dp"
+                tools:layout_editor_absoluteY="1051dp" />
+
+            <Button
                 android:id="@+id/picture_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

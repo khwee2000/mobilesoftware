@@ -29,8 +29,12 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.viewmodel.CreationExtras;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.io.IOException;
 import java.util.Calendar;
@@ -65,6 +69,7 @@ public class Frag2 extends Fragment {
         Button meal_date_btn = view.findViewById(R.id.meal_date_btn);
         Button meal_time_btn = view.findViewById(R.id.meal_time_btn);
         Button picture_btn = view.findViewById(R.id.picture_btn);
+        Button register_btn = view.findViewById(R.id.register_btn2);
 
 
         meal_type_tv = view.findViewById(R.id.meal_type_tv);//텍스트뷰 선언 및 find
@@ -229,7 +234,7 @@ public class Frag2 extends Fragment {
         ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-                String ratingText = String.valueOf(rating);
+                String ratingText = String.valueOf((int)rating);
                 food_review_tv.setText(ratingText);
             }
 
@@ -246,7 +251,12 @@ public class Frag2 extends Fragment {
 
         }); //사진 입력
 
-
+        register_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                insertData();
+            }
+        });
         return view;
 
     }
@@ -273,17 +283,43 @@ public class Frag2 extends Fragment {
         viewModel = new ViewModelProvider(this).get(MealViewModel.class);
     } //DB이용
     private void insertData() {
-        Meal meal = new Meal();
-        meal.setMeal_type(meal_type_tv.getText().toString());
-        meal.setMeal_place(place_tv.getText().toString());
-        meal.setMeal_name(food_name_tv.getText().toString());
-        meal.setMeal_cost(Integer.parseInt(meal_cost_tv.getText().toString()));
-        meal.setMeal_data(meal_date_tv.getText().toString());
-        meal.setMeal_time(meal_time_tv.getText().toString());
-        meal.setMeal_review(Integer.parseInt(food_review_tv.getText().toString()));
-        meal.setImageUri(uriString);
-        viewModel.insert(meal);
+        String mealType = meal_type_tv.getText().toString();
+        String mealPlace = place_tv.getText().toString();
+        String mealName = food_name_tv.getText().toString();
+        String mealCost = meal_cost_tv.getText().toString();
+        String mealData = meal_date_tv.getText().toString();
+        String mealTime = meal_time_tv.getText().toString();
+        String mealReview = food_review_tv.getText().toString();
+
+        if (mealType.isEmpty() || mealPlace.isEmpty() || mealName.isEmpty() ||
+                mealCost.isEmpty() || mealData.isEmpty() || mealTime.isEmpty() ||
+                mealReview.isEmpty() || uriString == null) {
+            Toast.makeText(getActivity(), "전부 입력해주십시오", Toast.LENGTH_SHORT).show();
+        } else {
+            Meal meal = new Meal();
+            meal.setMeal_type(mealType);
+            meal.setMeal_place(mealPlace);
+            meal.setMeal_name(mealName);
+            meal.setMeal_cost(Integer.parseInt(mealCost));
+            meal.setMeal_data(mealData);
+            meal.setMeal_time(mealTime);
+            meal.setMeal_review(Integer.parseInt(mealReview));
+            meal.setImageUri(uriString);
+            viewModel.insert(meal);
+
+            Toast.makeText(getActivity(),"등록이 완료되었습니다!",Toast.LENGTH_SHORT).show();
+
+            BottomNavigationView bottomNavigationView = getActivity().findViewById(R.id.navigationVar);
+            bottomNavigationView.setSelectedItemId(R.id.action_home);
+            // Frag1으로 화면 전환
+            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.main_frame, new Frag1());
+            fragmentTransaction.commit();
+
+        } //데베 Insert 함수
     }
+
 
 
     @NonNull
