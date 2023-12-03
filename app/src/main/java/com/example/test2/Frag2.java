@@ -1,7 +1,5 @@
 package com.example.test2;
 
-import static android.app.Activity.RESULT_OK;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
@@ -16,7 +14,6 @@ import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -69,7 +66,7 @@ public class Frag2 extends Fragment {
         Button meal_date_btn = view.findViewById(R.id.meal_date_btn);
         Button meal_time_btn = view.findViewById(R.id.meal_time_btn);
         Button picture_btn = view.findViewById(R.id.picture_btn);
-        Button register_btn = view.findViewById(R.id.register_btn2);
+        Button register_btn = view.findViewById(R.id.register_btn);
 
 
         meal_type_tv = view.findViewById(R.id.meal_type_tv);//텍스트뷰 선언 및 find
@@ -207,7 +204,8 @@ public class Frag2 extends Fragment {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
-                        meal_date_tv.setText(year+"/"+(month+1)+"/"+dayOfMonth);
+                        String formattedDate = String.format("%04d/%02d/%02d", year, month + 1, dayOfMonth);
+                        meal_date_tv.setText(formattedDate);
                     }
                 },mYear,mMonth,mDay);
                 datePickerDialog.show();
@@ -316,6 +314,7 @@ public class Frag2 extends Fragment {
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.main_frame, new Frag1());
             fragmentTransaction.commit();
+
 
         } //데베 Insert 함수
     }

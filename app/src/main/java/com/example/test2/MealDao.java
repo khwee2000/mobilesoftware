@@ -1,6 +1,7 @@
 package com.example.test2;
 
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -22,5 +23,8 @@ public interface MealDao {
 
     @Query("SELECT * FROM Meal")
     List<Meal> getMealAll();
+
+    @Query("SELECT * FROM Meal WHERE meal_data = :date")
+    LiveData<List<Meal>> getMealsByDate(String date);
 
 }
