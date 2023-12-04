@@ -112,10 +112,10 @@ public class Frag3 extends Fragment {
             holder.mealType.setText(meal.getMeal_type());
             holder.mealCost.setText(String.valueOf(meal.getMeal_cost()));
             holder.mealPlace.setText(meal.getMeal_place());
-            // Glide를 사용하여 이미지 로드(미완성)
-            //Glide.with(holder.itemView.getContext())
-                    //.load(meal.getImageUri())
-                    //.into(holder.iv_meal);
+            //Glide를 사용하여 이미지 로드(미완성)
+            Glide.with(holder.itemView.getContext())
+                    .load(meal.getImageUri())
+                    .into(holder.iv_meal);
         }
         public MealListAdapter(List<Meal> mealList) {
             this.mealList = mealList;
