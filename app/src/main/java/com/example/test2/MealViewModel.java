@@ -27,4 +27,8 @@ public class MealViewModel extends AndroidViewModel {
     public List<Meal> getMealAll(){
         return repository.getMealAll();
     } //전부 다 찾기
+
+    public LiveData<List<Meal>> getRecentMeals() {
+        return repository.getRecentMeals();
+    }//최근 1달 동안의 식사 정보를 가져오기
 }

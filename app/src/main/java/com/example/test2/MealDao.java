@@ -27,4 +27,6 @@ public interface MealDao {
     @Query("SELECT * FROM Meal WHERE meal_data = :date")
     LiveData<List<Meal>> getMealsByDate(String date);
 
+    @Query("SELECT * FROM Meal WHERE meal_data >= :oneMonthAgo ORDER BY meal_data DESC")
+    LiveData<List<Meal>> getRecentMeals(String oneMonthAgo);
 }

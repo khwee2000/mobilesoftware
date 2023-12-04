@@ -38,7 +38,6 @@ public class Frag3 extends Fragment {
     private RecyclerView meal_list;
     private MealViewModel mealViewModel;
     private MealListAdapter adapter;
-    private Button search_btn;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -116,6 +115,13 @@ public class Frag3 extends Fragment {
             Glide.with(holder.itemView.getContext())
                     .load(meal.getImageUri())
                     .into(holder.iv_meal);
+
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(v.getContext(), "Clicked: " + meal.getMeal_name(), Toast.LENGTH_SHORT).show();
+                }
+            });
         }
         public MealListAdapter(List<Meal> mealList) {
             this.mealList = mealList;

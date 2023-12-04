@@ -16,68 +16,72 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/meal_type_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="19dp"
+                android:layout_marginTop="24dp"
                 android:layout_weight="1"
                 android:textColor="#FE7501"
-                app:layout_constraintBottom_toTopOf="@+id/meal_type_btn"
-                app:layout_constraintStart_toStartOf="@+id/meal_type_btn" />
+                app:layout_constraintEnd_toStartOf="@+id/meal_type_btn"
+                app:layout_constraintStart_toStartOf="@+id/meal_type_btn"
+                app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
             <Button
                 android:id="@+id/register_btn"
-                android:layout_width="330dp"
+                android:layout_width="0dp"
                 android:layout_height="60dp"
                 android:layout_marginStart="40dp"
                 android:layout_marginEnd="40dp"
-                android:layout_marginBottom="80dp"
+                android:layout_marginBottom="90dp"
                 android:layout_weight="1"
                 android:backgroundTint="#FFFFFF"
                 android:text="저장하기"
                 android:textColor="#000000"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:strokeColor="#232323"
                 app:strokeWidth="2dp" />
 
             <Button
                 android:id="@+id/meal_cost_btn"
-                android:layout_width="330dp"
+                android:layout_width="0dp"
                 android:layout_height="60dp"
                 android:layout_marginStart="40dp"
+                android:layout_marginTop="244dp"
                 android:layout_marginEnd="40dp"
-                android:layout_marginBottom="56dp"
+                android:layout_marginBottom="244dp"
                 android:layout_weight="1"
                 android:backgroundTint="#131313"
                 android:text="@string/meal_cost_word"
                 android:textColor="#FE7501"
-                app:layout_constraintBottom_toTopOf="@+id/meal_date_btn"
+                app:layout_constraintBottom_toTopOf="@+id/ratingBar"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/food_name_btn"
+                app:layout_constraintTop_toTopOf="@+id/place_tv"
                 app:strokeColor="#232323"
                 app:strokeWidth="2dp" />
 
             <Button
                 android:id="@+id/meal_date_btn"
-                android:layout_width="140dp"
+                android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_marginStart="48dp"
-                android:layout_marginTop="55dp"
-                android:layout_marginEnd="35dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="71dp"
+                android:layout_marginBottom="28dp"
                 android:layout_weight="1"
                 android:backgroundTint="#131313"
                 android:text="날짜"
                 android:textColor="#FE7501"
+                app:layout_constraintBottom_toTopOf="@+id/food_review_tv2"
                 app:layout_constraintEnd_toStartOf="@+id/meal_time_btn"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/meal_cost_btn"
+                app:layout_constraintTop_toTopOf="@+id/meal_date_tv"
                 app:strokeColor="#232323"
                 app:strokeWidth="2dp" />
 
@@ -85,22 +89,23 @@
                 android:id="@+id/meal_cost_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="11dp"
+                android:layout_marginBottom="12dp"
                 android:layout_weight="1"
                 android:textColor="#FE7501"
                 app:layout_constraintBottom_toTopOf="@+id/meal_cost_btn"
-                app:layout_constraintStart_toStartOf="@+id/meal_cost_btn" />
+                app:layout_constraintEnd_toStartOf="@+id/food_name_btn"
+                app:layout_constraintStart_toStartOf="@+id/food_name_btn" />
 
             <TextView
                 android:id="@+id/meal_date_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="84dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="86dp"
                 android:layout_weight="1"
                 android:textColor="#FE7501"
-                app:layout_constraintBottom_toTopOf="@+id/meal_date_btn"
+                app:layout_constraintEnd_toEndOf="@+id/meal_date_btn"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/meal_cost_btn" />
 
@@ -108,60 +113,58 @@
                 android:id="@+id/meal_time_tv2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginStart="86dp"
                 android:layout_marginEnd="84dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="12dp"
                 android:layout_weight="1"
                 android:textColor="#FE7501"
                 app:layout_constraintBottom_toTopOf="@+id/meal_time_btn"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/meal_cost_btn" />
+                app:layout_constraintStart_toStartOf="@+id/meal_time_btn" />
 
             <Button
                 android:id="@+id/meal_time_btn"
-                android:layout_width="140dp"
-                android:layout_height="0dp"
-                android:layout_marginStart="35dp"
+                android:layout_width="0dp"
+                android:layout_height="49dp"
                 android:layout_marginTop="56dp"
-                android:layout_marginEnd="48dp"
+                android:layout_marginEnd="30dp"
                 android:layout_marginBottom="58dp"
                 android:layout_weight="1"
                 android:backgroundTint="#131313"
                 android:text="시간"
                 android:textColor="#FE7501"
-                app:layout_constraintBottom_toTopOf="@+id/food_review_btn"
+                app:layout_constraintBottom_toTopOf="@+id/food_review_tv"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/meal_date_btn"
                 app:layout_constraintTop_toBottomOf="@+id/meal_cost_btn"
                 app:strokeColor="#232323"
                 app:strokeWidth="2dp" />
 
-            <Button
-                android:id="@+id/food_review_btn"
-                android:layout_width="330dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="33dp"
-                android:layout_marginEnd="33dp"
-                android:layout_marginBottom="14dp"
+            <TextView
+                android:id="@+id/food_review_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
                 android:layout_weight="1"
                 android:backgroundTint="#131313"
-                android:text="@string/meal_review"
+                android:text="5"
                 android:textColor="#FE7501"
-                app:layout_constraintBottom_toTopOf="@+id/ratingBar"
+                android:textSize="32sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/meal_date_btn"
+                app:layout_constraintTop_toBottomOf="@+id/food_review_tv2"
                 app:strokeColor="#232323"
                 app:strokeWidth="2dp" />
 
 
             <Button
                 android:id="@+id/picture_btn"
-                android:layout_width="330dp"
+                android:layout_width="0dp"
                 android:layout_height="60dp"
                 android:layout_marginStart="40dp"
+                android:layout_marginTop="78dp"
                 android:layout_marginEnd="40dp"
-                android:layout_marginBottom="24dp"
+                android:layout_marginBottom="84dp"
                 android:layout_weight="1"
                 android:backgroundTint="#131313"
                 android:text="@string/meal_photo_word"
@@ -175,12 +178,12 @@
 
             <Button
                 android:id="@+id/meal_type_btn"
-                android:layout_width="330dp"
+                android:layout_width="0dp"
                 android:layout_height="60dp"
                 android:layout_marginStart="40dp"
-                android:layout_marginTop="122dp"
+                android:layout_marginTop="38dp"
                 android:layout_marginEnd="40dp"
-                android:layout_marginBottom="39dp"
+                android:layout_marginBottom="40dp"
                 android:layout_weight="1"
                 android:backgroundTint="#131313"
                 android:text="@string/meal_type_word"
@@ -188,76 +191,77 @@
                 app:layout_constraintBottom_toTopOf="@+id/place_btn"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/meal_type_tv"
                 app:strokeColor="#232323"
                 app:strokeWidth="2dp" />
 
             <Button
                 android:id="@+id/place_btn"
-                android:layout_width="330dp"
+                android:layout_width="0dp"
                 android:layout_height="60dp"
                 android:layout_marginStart="40dp"
+                android:layout_marginTop="27dp"
                 android:layout_marginEnd="40dp"
-                android:layout_marginBottom="63dp"
+                android:layout_marginBottom="32dp"
                 android:layout_weight="1"
                 android:backgroundTint="#131313"
                 android:text="@string/choose_place_words"
                 android:textColor="#FE7501"
-                app:layout_constraintBottom_toTopOf="@+id/food_name_btn"
+                app:layout_constraintBottom_toTopOf="@+id/food_name_tv"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/meal_type_btn"
+                app:layout_constraintTop_toTopOf="@+id/place_tv"
                 app:strokeColor="#232323"
                 app:strokeWidth="2dp" />
 
             <Button
                 android:id="@+id/food_name_btn"
-                android:layout_width="330dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
                 android:layout_marginEnd="40dp"
-                android:layout_marginBottom="46dp"
+                android:layout_marginBottom="15dp"
                 android:layout_weight="1"
                 android:backgroundTint="#131313"
                 android:text="@string/meal_name_word"
                 android:textColor="#FE7501"
-                app:layout_constraintBottom_toTopOf="@+id/meal_cost_btn"
+                app:layout_constraintBottom_toTopOf="@+id/meal_cost_tv"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/place_btn" />
+                app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
                 android:id="@+id/food_name_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="11dp"
+                android:layout_marginBottom="12dp"
                 android:layout_weight="1"
                 android:textColor="#FE7501"
                 app:layout_constraintBottom_toTopOf="@+id/food_name_btn"
-                app:layout_constraintStart_toStartOf="@+id/food_name_btn" />
+                app:layout_constraintEnd_toStartOf="@+id/place_btn"
+                app:layout_constraintStart_toStartOf="@+id/place_btn" />
 
             <TextView
-                android:id="@+id/food_review_tv"
+                android:id="@+id/food_review_tv2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="28dp"
-                android:layout_marginBottom="11dp"
+                android:layout_marginBottom="92dp"
                 android:layout_weight="1"
+                android:text="@string/meal_review"
                 android:textColor="#FE7501"
-                app:layout_constraintBottom_toTopOf="@+id/food_review_btn"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/meal_date_btn" />
+                app:layout_constraintBottom_toTopOf="@+id/ratingBar"
+                app:layout_constraintEnd_toStartOf="@+id/food_review_tv"
+                app:layout_constraintStart_toStartOf="@+id/food_review_tv" />
 
             <TextView
                 android:id="@+id/place_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="7dp"
+                android:layout_marginTop="194dp"
                 android:layout_weight="1"
                 android:textColor="#FE7501"
-                app:layout_constraintBottom_toTopOf="@+id/place_btn"
-                app:layout_constraintStart_toStartOf="@+id/place_btn" />
+                app:layout_constraintEnd_toStartOf="@+id/meal_type_btn"
+                app:layout_constraintStart_toStartOf="@+id/meal_type_btn"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/textView8"
@@ -265,12 +269,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="26dp"
                 android:layout_marginTop="38dp"
-                android:layout_marginBottom="494dp"
                 android:layout_weight="1"
                 android:text="@string/app_name"
                 android:textColor="#FE7501"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/meal_date_btn"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -278,25 +280,23 @@
                 android:id="@+id/ratingBar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="18dp"
+                android:layout_marginBottom="650dp"
                 android:numStars="5"
                 android:stepSize="1"
-                app:layout_constraintBottom_toTopOf="@+id/picture_btn"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/food_review_btn" />
+                app:layout_constraintStart_toStartOf="parent" />
 
             <ImageView
                 android:id="@+id/meal_img"
-                android:layout_width="300dp"
+                android:layout_width="0dp"
                 android:layout_height="300dp"
-                android:layout_marginStart="141dp"
-                android:layout_marginEnd="142dp"
-                android:layout_marginBottom="8dp"
-                app:layout_constraintBottom_toTopOf="@+id/register_btn"
+                android:layout_marginStart="55dp"
+                android:layout_marginEnd="55dp"
+                android:layout_marginBottom="180dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/picture_btn"
                 tools:srcCompat="@tools:sample/avatars" />
 
 
@@ -304,9 +304,5 @@
 
     </ScrollView>
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="280dp"
-        android:layout_weight="1"></FrameLayout>
 
 </LinearLayout>

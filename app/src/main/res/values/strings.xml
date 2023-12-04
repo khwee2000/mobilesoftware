@@ -26,4 +26,9 @@
     <string name="meal_tme">식사 시간을 입력해주세요</string>
     <string name="meal_review">식사 만족도를 입력해주세요.</string>
     <string name="BackToFrag2">입력탭으로 돌아가기</string>
+    <string name="meal_place">식사 장소</string>
+    <string name="meal_information">식사 정보</string>
+    <string name="meal_data">식사 날짜</string>
+    <string name="meal_ok">확인하기</string>
+    <string name="cost_show">총 비용</string>
 </resources>

@@ -1,15 +1,76 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:gravity="center">
 
+
+    <Button
+        android:id="@+id/show_meal_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="출력"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="422dp"></Button>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="411dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="48dp"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/meal_analysis_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="식사별 분석"
+        tools:layout_editor_absoluteX="147dp"
+        tools:layout_editor_absoluteY="38dp" />
 
     <TextView
-        android:id="@+id/selected_date"
+        android:id="@+id/analysis_up_tv"
         android:layout_width="wrap_content"
-        android:layout_height="277dp"
-        android:layout_weight="1"
-        android:text="4번화면"
-        android:textSize="34sp" />
-</LinearLayout>
+        android:layout_height="wrap_content"
+        android:text="@string/cost_show"
+        tools:layout_editor_absoluteX="184dp"
+        tools:layout_editor_absoluteY="96dp" />
+
+    <TextView
+        android:id="@+id/total_cost_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="비용계산될곳"
+        tools:layout_editor_absoluteX="166dp"
+        tools:layout_editor_absoluteY="125dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="칼로리 분석"
+        tools:layout_editor_absoluteX="147dp"
+        tools:layout_editor_absoluteY="189dp" />
+
+    <TextView
+        android:id="@+id/total_cal_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="총 칼로리"
+        tools:layout_editor_absoluteX="179dp"
+        tools:layout_editor_absoluteY="248dp" />
+
+    <TextView
+        android:id="@+id/total_cal_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="총 칼로리 나올곳"
+        tools:layout_editor_absoluteX="156dp"
+        tools:layout_editor_absoluteY="286dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
