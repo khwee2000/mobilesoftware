@@ -31,4 +31,6 @@
     <string name="meal_data">식사 날짜</string>
     <string name="meal_ok">확인하기</string>
     <string name="cost_show">총 비용</string>
+    <string name="meal_calorie">식사 칼로리</string>
+    <string name="meal_month_tv">한달 식사 리스트</string>
 </resources>

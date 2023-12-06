@@ -1,7 +1,10 @@
 package com.example.test2;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,9 +15,15 @@ import android.widget.CalendarView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.Manifest;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContract;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -23,6 +32,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.annotation.GlideModule;
+import com.bumptech.glide.module.AppGlideModule;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +51,7 @@ public class Frag3 extends Fragment {
     private RecyclerView meal_list;
     private MealViewModel mealViewModel;
     private MealListAdapter adapter;
+
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -91,7 +105,7 @@ public class Frag3 extends Fragment {
             public TextView mealType;
             public TextView mealCost;
             public TextView mealPlace;
-            public ImageView iv_meal;
+            public ImageView mealImage;
 
             //리사이클러뷰 id 찾기
             public MealViewHolder(View view) {
@@ -100,10 +114,9 @@ public class Frag3 extends Fragment {
                 mealType = view.findViewById(R.id.meal_type);
                 mealCost = view.findViewById(R.id.meal_cost);
                 mealPlace = view.findViewById(R.id.meal_place);
-                iv_meal = view.findViewById(R.id.iv_meal);
             }
         }
-        // 리사이클러뷰에 바인딩할 목록
+        // 리사이클러뷰에 바인딩할 목록(리사이클러뷰에 보여줄 목록)
         @Override
         public void onBindViewHolder(@NonNull MealViewHolder holder, int position) {
             Meal meal = mealList.get(position);
@@ -111,16 +124,60 @@ public class Frag3 extends Fragment {
             holder.mealType.setText(meal.getMeal_type());
             holder.mealCost.setText(String.valueOf(meal.getMeal_cost()));
             holder.mealPlace.setText(meal.getMeal_place());
-            //Glide를 사용하여 이미지 로드(미완성)
-            Glide.with(holder.itemView.getContext())
-                    .load(meal.getImageUri())
-                    .into(holder.iv_meal);
 
+
+            //리사이클러뷰를 클릭했을 때 보여지는 커스텀 다이얼로그 창
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(v.getContext(), "Clicked: " + meal.getMeal_name(), Toast.LENGTH_SHORT).show();
+                    // Dialog 객체를 생성합니다.
+                    Dialog dialog = new Dialog(v.getContext());
+
+                    String uriString = meal.getImageUri();
+                    Uri uri = Uri.parse(uriString);
+
+                    // 커스텀 뷰를 설정합니다.
+                    dialog.setContentView(R.layout.meal_dialog);
+
+                    TextView meal_name = dialog.findViewById(R.id.meal_name);
+                    TextView meal_type = dialog.findViewById(R.id.meal_type);
+                    TextView meal_cost = dialog.findViewById(R.id.meal_cost);
+                    TextView meal_place = dialog.findViewById(R.id.meal_place);
+                    TextView meal_data = dialog.findViewById(R.id.meal_data);
+                    TextView meal_time = dialog.findViewById(R.id.meal_time);
+                    TextView meal_review = dialog.findViewById(R.id.meal_review);
+                    TextView meal_cal = dialog.findViewById(R.id.meal_calorie);
+
+                    ImageView meal_img = dialog.findViewById(R.id.iv_meal);
+                    Glide.with(getActivity()).load(uri).into(meal_img);
+
+                    meal_name.setText(meal.getMeal_name());
+                    meal_type.setText(meal.getMeal_type());
+                    meal_cost.setText(String.valueOf(meal.getMeal_cost()));
+                    meal_place.setText(meal.getMeal_place());
+                    meal_data.setText(meal.getMeal_data());
+                    meal_time.setText(meal.getMeal_time());
+                    meal_review.setText(String.valueOf(meal.getMeal_review()));
+
+                    // meal_type에 따라 meal_cal 값을 설정합니다.
+                    String type = meal.getMeal_type();
+                    if (type.equals("조식")) {
+                        meal_cal.setText("400 kcal");
+                    } else if (type.equals("중식")) {
+                        meal_cal.setText("500 kcal");
+                    } else if (type.equals("석식")) {
+                        meal_cal.setText("600 kcal");
+                    } else if (type.equals("음료")) {
+                        meal_cal.setText("100 kcal");
+                    }
+
+                    // 다이얼로그의 크기와 위치를 조정합니다.
+                    dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+
+                    // 다이얼로그를 보여줍니다.
+                    dialog.show();
                 }
+
             });
         }
         public MealListAdapter(List<Meal> mealList) {
@@ -158,4 +215,7 @@ public class Frag3 extends Fragment {
     public CreationExtras getDefaultViewModelCreationExtras() {
         return super.getDefaultViewModelCreationExtras();
     }
+
+
+
 }

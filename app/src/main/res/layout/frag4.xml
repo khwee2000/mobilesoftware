@@ -7,70 +7,87 @@
     android:gravity="center">
 
 
-    <Button
-        android:id="@+id/show_meal_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="출력"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="422dp"></Button>
-
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
-        android:layout_width="411dp"
+        android:id="@+id/recycler_view2"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="48dp"
+        android:layout_marginBottom="80dp"
         android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/meal_analysis_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
         android:text="식사별 분석"
-        tools:layout_editor_absoluteX="147dp"
-        tools:layout_editor_absoluteY="38dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/analysis_up_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:text="@string/cost_show"
-        tools:layout_editor_absoluteX="184dp"
-        tools:layout_editor_absoluteY="96dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/meal_analysis_btn" />
 
     <TextView
         android:id="@+id/total_cost_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="비용계산될곳"
-        tools:layout_editor_absoluteX="166dp"
-        tools:layout_editor_absoluteY="125dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/analysis_up_tv" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="43dp"
         android:text="칼로리 분석"
-        tools:layout_editor_absoluteX="147dp"
-        tools:layout_editor_absoluteY="189dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/total_cost_tv" />
 
     <TextView
         android:id="@+id/total_cal_up"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
         android:text="총 칼로리"
-        tools:layout_editor_absoluteX="179dp"
-        tools:layout_editor_absoluteY="248dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button2" />
 
     <TextView
         android:id="@+id/total_cal_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:layout_marginBottom="19dp"
         android:text="총 칼로리 나올곳"
-        tools:layout_editor_absoluteX="156dp"
-        tools:layout_editor_absoluteY="286dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/total_cal_up" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:text="@string/meal_month_tv"
+        app:layout_constraintBottom_toTopOf="@+id/recycler_view2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,6 +10,8 @@ import androidx.room.Room;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.bumptech.glide.annotation.GlideModule;
+import com.bumptech.glide.module.AppGlideModule;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,6 +25,9 @@ public class MainActivity extends AppCompatActivity {
     private Frag2 frag2;
     private Frag3 frag3;
     private Frag4 frag4;
+
+
+
 
 
     @Override
