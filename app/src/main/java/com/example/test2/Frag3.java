@@ -81,7 +81,6 @@ public class Frag3 extends Fragment {
                 // 선택된 날짜를 YYYY/MM/DD 형태의 문자열로 변환
                 selectedDate = String.format("%04d/%02d/%02d", year, month + 1, dayOfMonth);
                 selected_date.setText(selectedDate);
-                Toast.makeText(getActivity(),selectedDate,Toast.LENGTH_SHORT).show();
                 // 선택된 날짜에 해당하는 식사 데이터를 가져옵니다.
                 mealViewModel.getMealsByDate(selectedDate).observe(getViewLifecycleOwner(), new Observer<List<Meal>>() {
                     @Override
