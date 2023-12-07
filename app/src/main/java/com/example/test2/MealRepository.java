@@ -15,7 +15,7 @@ public class MealRepository {
     private final MealDao mealDao;
     private LiveData<List<Meal>> mealsByDate;
     private List<Meal> mealsAll;
-    private LiveData<List<Meal>> recentMeals;
+    private LiveData<Integer> costsByMealType;
     public MealRepository(Application application) {
         MealDatabase db = MealDatabase.getDatabase(application);
         mealDao = db.mealDao();
@@ -41,6 +41,20 @@ public class MealRepository {
         return mealDao.getRecentMeals(oneMonthAgo);
     }
 
+    public LiveData<Integer> getCostsByMealType(String mealType) {
+        // 현재 날짜에서 1달 전 날짜를 계산
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.MONTH, -1);
+        String oneMonthAgo = new SimpleDateFormat("yyyy/MM/dd", Locale.getDefault()).format(calendar.getTime());
+
+        // Room 데이터베이스에서 특정 식사 유형의 최근 1달 동안의 식사 비용을 조회
+        costsByMealType = mealDao.getCostsByMealType(oneMonthAgo, mealType);
+        return costsByMealType;
+    }
+
+    public LiveData<Integer> getCountByMealType(String mealType) {
+        return mealDao.getCountByMealType(mealType);
+    }
     public void insert(Meal meal) {
         new insertAsyncTask(mealDao).execute(meal);
     }

@@ -7,87 +7,208 @@
     android:gravity="center">
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="80dp"
-        android:scrollbars="vertical"
+    <Button
+        android:id="@+id/register_btn2"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="188dp"
+        android:layout_weight="1"
+        android:backgroundTint="#FFFFFF"
+        android:text="@string/printf"
+        android:textColor="#727272"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:strokeColor="#232323"
+        app:strokeWidth="2dp" />
 
-    <Button
-        android:id="@+id/meal_analysis_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="38dp"
-        android:text="식사별 분석"
+    <View
+        android:id="@+id/stroke_view2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/shape_stroke"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/analysis_up_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/cost_show"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/meal_analysis_btn" />
-
-    <TextView
-        android:id="@+id/total_cost_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="비용계산될곳"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/analysis_up_tv" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="43dp"
-        android:text="칼로리 분석"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/total_cost_tv" />
-
-    <TextView
-        android:id="@+id/total_cal_up"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="11dp"
-        android:text="총 칼로리"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintTop_toBottomOf="@+id/stroke_view" />
 
     <TextView
         android:id="@+id/total_cal_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="17dp"
-        android:layout_marginBottom="19dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="12dp"
         android:text="총 칼로리 나올곳"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/total_cost_tv4"
+        app:layout_constraintEnd_toEndOf="@+id/cal_analysis_btn" />
+
+    <TextView
+        android:id="@+id/total_cal_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/month_kacl"
+        android:textColor="#FE7501"
+        app:layout_constraintStart_toStartOf="@+id/cal_analysis_btn"
+        app:layout_constraintTop_toBottomOf="@+id/cal_analysis_btn" />
+
+    <TextView
+        android:id="@+id/total_cost_tv4"
+        android:layout_width="79dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginEnd="36dp"
+        android:layout_weight="1"
+        android:text="비용계산될곳"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/cal_analysis_btn"
+        app:layout_constraintStart_toEndOf="@+id/total_cal_up2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/total_cost_tv2"
+        android:layout_width="0dp"
+        android:layout_height="23dp"
+        android:layout_marginBottom="23dp"
+        android:layout_weight="1"
+        android:text="비용계산될곳"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/total_cost_tv"
+        app:layout_constraintEnd_toEndOf="@+id/total_cost_tv3"
+        app:layout_constraintStart_toStartOf="@+id/total_cost_tv3" />
+
+    <TextView
+        android:id="@+id/analysis_up_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="134dp"
+        android:text="@string/month_cost"
+        android:textColor="#FE7501"
+        app:layout_constraintStart_toStartOf="@+id/meal_analysis_btn"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/stroke_view"
+        android:layout_width="0dp"
+        android:layout_height="168dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="61dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginBottom="71dp"
+        android:background="@drawable/shape_stroke"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/cal_analysis_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/cal_analysis_btn"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="128dp"
+        android:layout_marginEnd="65dp"
+        android:layout_marginBottom="128dp"
+        android:backgroundTint="#232323"
+        android:text="@string/meal_kcal_see"
+        android:textColor="#FE7501"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/total_cost_tv2" />
+
+    <TextView
+        android:id="@+id/total_cal_up2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/month_avg_kcal"
+        android:textColor="#FE7501"
+        app:layout_constraintStart_toStartOf="@+id/total_cal_up"
         app:layout_constraintTop_toBottomOf="@+id/total_cal_up" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/total_cost_tv3"
+        android:layout_width="79dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="43dp"
+        android:layout_marginBottom="46dp"
+        android:layout_weight="1"
+        android:text="비용계산될곳"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/stroke_view2"
+        app:layout_constraintEnd_toEndOf="@+id/cal_analysis_btn"
+        app:layout_constraintStart_toEndOf="@+id/total_cost_tv"
+        app:layout_constraintTop_toTopOf="@+id/total_cost_tv2" />
+
+    <TextView
+        android:id="@+id/total_cost_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
-        android:text="@string/meal_month_tv"
-        app:layout_constraintBottom_toTopOf="@+id/recycler_view2"
+        android:layout_marginTop="23dp"
+        android:text="@string/month_avg_cost"
+        android:textColor="#FE7501"
+        app:layout_constraintStart_toStartOf="@+id/analysis_up_tv"
+        app:layout_constraintTop_toBottomOf="@+id/analysis_up_tv" />
+
+    <Button
+        android:id="@+id/meal_analysis_btn"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="65dp"
+        android:layout_marginBottom="19dp"
+        android:backgroundTint="#232323"
+        android:text="@string/meal_type_see"
+        android:textColor="#FE7501"
+        app:layout_constraintBottom_toTopOf="@+id/total_cost_tv2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/stroke_view"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view2"
+        android:layout_width="0dp"
+        android:layout_height="190dp"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="0dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="73dp"
+        android:layout_marginTop="75dp"
+        android:layout_marginEnd="73dp"
+        android:layout_marginBottom="66dp"
+        android:text="@string/kcal"
+        app:layout_constraintBottom_toBottomOf="@+id/register_btn2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/total_cost_tv4" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

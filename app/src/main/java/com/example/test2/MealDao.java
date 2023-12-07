@@ -29,4 +29,10 @@ public interface MealDao {
 
     @Query("SELECT * FROM Meal WHERE meal_data >= :oneMonthAgo ORDER BY meal_data DESC")
     LiveData<List<Meal>> getRecentMeals(String oneMonthAgo);
+
+    @Query("SELECT SUM(meal_cost) FROM Meal WHERE meal_data >= :oneMonthAgo AND meal_type = :mealType")
+    LiveData<Integer> getCostsByMealType(String oneMonthAgo, String mealType);
+
+    @Query("SELECT COUNT(*) FROM Meal WHERE meal_type = :mealType")
+    LiveData<Integer> getCountByMealType(String mealType);
 }

@@ -24,11 +24,14 @@ public class MealViewModel extends AndroidViewModel {
         return repository.getMealsByDate(date);
     } //날짜별 찾기
 
-    public List<Meal> getMealAll(){
-        return repository.getMealAll();
-    } //전부 다 찾기
-
+    public LiveData<Integer> getCostsByMealType(String mealType) {
+        return repository.getCostsByMealType(mealType);
+    } // 식사 종류별로 찾기
     public LiveData<List<Meal>> getRecentMeals() {
         return repository.getRecentMeals();
     }//최근 1달 동안의 식사 정보를 가져오기
+
+    public LiveData<Integer> getCountByMealType(String mealType) {
+        return repository.getCountByMealType(mealType);
+    }//식사 종류별로 찾기(횟수 세기)
 }
