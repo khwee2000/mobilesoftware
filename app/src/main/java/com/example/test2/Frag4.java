@@ -24,8 +24,10 @@ public class Frag4 extends Fragment {
     private RecyclerView recyclerView;
     private MealAdapter mealAdapter;
     private MealViewModel viewModel;
-    private TextView analysis_cost_tv,total_cal_tv;
+    private TextView total_cost_tv2,total_cal_tv;
     private Button analysis_btn,cal_analysis_btn;
+
+    private boolean cal_button_clicked = false;
 
     @Nullable
     @Override
@@ -36,12 +38,12 @@ public class Frag4 extends Fragment {
         recyclerView = view.findViewById(R.id.recycler_view2);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        analysis_cost_tv = view.findViewById(R.id.analysis_up_tv);
+        total_cost_tv2 = view.findViewById(R.id.total_cost_tv2);
         total_cal_tv = view.findViewById(R.id.total_cal_tv);
 
         analysis_btn = view.findViewById(R.id.meal_analysis_btn);
         cal_analysis_btn = view.findViewById(R.id.cal_analysis_btn);
-
+        cal_button_clicked = false;
 
         analysis_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,7 +59,7 @@ public class Frag4 extends Fragment {
                         viewModel.getCostsByMealType(selectedMealType).observe(getViewLifecycleOwner(), new Observer<Integer>() {
                             @Override
                             public void onChanged(Integer cost) {
-                                analysis_cost_tv.setText(String.valueOf(cost));
+                                total_cost_tv2.setText(String.valueOf(cost));
                             }
                         });
                         dialog.dismiss();
@@ -71,21 +73,27 @@ public class Frag4 extends Fragment {
 
         cal_analysis_btn.setOnClickListener(new View.OnClickListener() {
             private int totalCalories = 0;
+
             @Override
             public void onClick(View v) {
-                String[] mealTypes = {"조식", "중식", "석식", "음료"};
-                int[] caloriesPerMeal = {400, 500, 600, 100};
 
-                for (int i = 0; i < mealTypes.length; i++) {
-                    final int index = i;
-                    viewModel.getCountByMealType(mealTypes[i]).observe(getViewLifecycleOwner(), new Observer<Integer>() {
-                        @Override
-                        public void onChanged(Integer count) {
-                            totalCalories += count * caloriesPerMeal[index];
-                            total_cal_tv.setText(String.valueOf(totalCalories));
-                            Log.d("MealListAdapter", "Meal type: "+mealTypes[index]+"  "+caloriesPerMeal[index] * count);
-                        }
-                    });
+                if(!cal_button_clicked) {
+                    String[] mealTypes = {"조식", "중식", "석식", "음료"};
+                    int[] caloriesPerMeal = {400, 500, 600, 100};
+
+                    for (int i = 0; i < mealTypes.length; i++) {
+                        final int index = i;
+                        viewModel.getCountByMealType(mealTypes[i]).observe(getViewLifecycleOwner(), new Observer<Integer>() {
+                            @Override
+                            public void onChanged(Integer count) {
+                                totalCalories += count * caloriesPerMeal[index];
+                                total_cal_tv.setText(String.valueOf(totalCalories));
+                                Log.d("MealListAdapter", "Meal type: " + mealTypes[index] + "  " + caloriesPerMeal[index] * count);
+                            }
+                        });
+
+                    }
+                    cal_button_clicked = true;
                 }
             }
 
