@@ -39,7 +39,7 @@
     <string name="month_kacl">한달 총 칼로리</string>
     <string name="meal_kcal_see">칼로리 분석 보기</string>
     <string name="month_avg_kcal">하루 평균 칼로리</string>
-    <string name="printf">출력하기</string>
+    <string name="printf">한달간 식사 목록</string>
     <string name="kcal">성인 남성 권장칼로리 = 2200~3000kcal
         성인 여성 권장칼로리 = 1800~2400kcal</string>
     <string name="main_title">동국대학교 식단 지킴이</string>
